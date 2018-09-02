@@ -1,0 +1,92 @@
+body{
+    margin:0 auto;
+    widows: 50px;
+}
+
+.align{
+    text-align: center;
+   margin: 0px auto;
+    font-family: 'Times new roman';
+    font-size: 50px;
+    background-color: dodgerblue;
+    widows: 50%;
+    
+}
+/* .btn{
+    cursor: pointer;
+    border: radius 5px;
+    color:brown;
+    margin:50px;
+    width:50%;
+}
+.btn:hover{
+    background-color:rosybrown;
+} */
+.row{
+    width: 100%;
+}
+.center{
+    text-align:center;
+}
+.table1 table{
+    background-color:#ffe0fe;
+    border: 1.5px solid grey;
+    display: none;
+    margin: 30px auto;
+    
+}
+.table1 table tr th{
+    border: 1px solid grey;
+}
+.table1 table tr td{
+    border: 1px solid grey;
+}
+.button {
+    border-radius: 4px;
+    background-color: #f4511e;
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 28px;
+    padding: 5px;
+    width: 25%;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 150px 250px;
+  }
+  
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -25px;
+    transition: 0.5s;
+  }
+  
+  .button:hover span {
+    padding-right: 25px;
+  }
+  
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  .graphwidth{
+    display:show;
+    width:100%;
+    margin:auto;
+  }
+  .h{
+      font-size:60px;
+      font-family:'Times New Roman';
+      color:#040204;
+      padding:25px;
+  }

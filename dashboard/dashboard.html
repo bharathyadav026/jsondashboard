@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin page</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/Chart.min.js"></script>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/drilldown.js"></script>
+
+</head>
+<body>
+    
+    
+    <div class="container align" style="border:1px solid balck;">
+       
+                <h2 class="h">Admin Panel</h2>
+        <div class="showtable">
+            <button class="button" type="button"><span>Dashboard report</span>
+            </button>
+        </div>
+        
+        <div class="row">
+            <div class="table1 col-12">
+                    <table id="appedn">
+                        <tr>
+                            <th>date</th>
+                            <th>no of visitors</th> 
+                            <th>no of vendors</th>
+                        </tr>
+                    </table>
+            </div>
+        </div>
+    </div>
+ <div id="Chart1" class="graphwidth">
+			<canvas id="one"></canvas>
+			
+		</div>
+</body>
+	<script type="text/javascript" src="jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script type="text/javascript" src="Chart.min.js"></script>
+<script>
+$(document).ready(function()
+{
+    $("button").click(function()
+    {
+        $("button").hide();
+                // $("span", this).text("go back");
+        $("#appedn").show();
+            	//alert("test");
+        $.ajax(
+         {  url: "https://dashboard-5b542.firebaseio.com/.json", success: function(result)
+            { 
+                var date=[];
+        		var visitors=[];
+        		var vendors=[];
+               
+        		     $.each(result, function (index, value) {
+		     $("#appedn").append("<tr class=center><td>"+value.date+"</td><td>"+value.visitors+"</td><td>"+value.vendors+"</td></tr>");
+
+  console.log(value);
+
+        			
+        					
+        			date.push(value.date);
+        			visitors.push( value.visitors);
+        			vendors.push( value.vendors);
+        				});	
+        					
+        					
+        	
+        				
+        			var chardata=
+        			{
+        				labels:date,
+        				datasets:
+        				[
+            				{
+            					label:'no of vendors',
+            					backgroundColor:'#ef034f',
+            					borderColor:'blue',
+            					//hoverBorderColor:'green',
+            					data:vendors
+            				},
+            				{
+            					label:'no of vistors',
+            					backgroundColor:'#efae0e',
+            					borderColor:'gray',
+            					//hoverBorderColor:'red',
+            					data:visitors
+            				}
+        					
+        				]
+        			};
+        				var ctx=$("#one");
+        				var barGraph=new Chart(ctx,
+        				{
+        					type:'bar',
+        					data:chardata
+        				});
+        		
+                  
+        
+            }
+                        
+        });
+    });
+});
+
+</script>
+</html>
